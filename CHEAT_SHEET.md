@@ -165,6 +165,25 @@ Abrir `openspec/config.yaml` para mostrar dónde se va a configurar el contexto.
 
 ---
 
+## Slide 10 · Recursos — `2 min`
+
+**Qué decir**:
+> "Acá tienen todos los links de la clase: las dos presentaciones, los tres repos del proyecto y las tres herramientas. Cada uno tiene su QR — sáquenle foto al que les sirva. Las skills se instalan con `npx skills add <repo>` y quedan disponibles en cualquier proyecto futuro."
+
+**Qué hacer**: dejar la slide en pantalla 1-2 minutos para que escaneen los QR que quieran. Aprovechar para responder preguntas finales.
+
+**Links incluidos**:
+- Presentación: instalación del JR-Stack
+- Presentación: esta clase (Food Store paso a paso)
+- Repo: FoodStore base + branch `clase-demo` con tags
+- Repo: skill `kb-creator`
+- Repo: skill `roadmap-generator`
+- Herramienta: JR-Stack
+- Herramienta: OpenSpec
+- Herramienta: find-skills (Vercel Labs)
+
+---
+
 ## Plan B si algo se rompe en vivo
 
 | Síntoma | Plan B |

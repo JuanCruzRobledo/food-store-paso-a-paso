@@ -15,6 +15,7 @@ const modeMap = {
   1: "knowledge",
   2: "framework",
   3: "execute",
+  4: "closing",
 };
 
 function buildDots() {
