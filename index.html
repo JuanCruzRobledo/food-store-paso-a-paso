@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Food Store · SDD de inicio a fin</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+<div class="ambient"></div>
+<div class="deck-app tone-brand">
+
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Clase práctica · SDD con OPSX</p>
+      <h1>Food Store de inicio a fin</h1>
+    </div>
+    <div class="status">
+      <span id="mode-badge" class="mode-badge">setup</span>
+      <span id="counter">01 / 09</span>
+      <span class="hint">← →  ·  F focus</span>
+    </div>
+  </header>
+
+  <div class="progress-track" aria-hidden="true">
+    <div class="progress-fill" id="progress"></div>
+  </div>
+
+  <div class="stage-layout">
+    <nav class="rail" aria-label="Módulos">
+      <div class="rail-module" data-module="0">
+        <button class="rail-title" data-first="0">1. Setup</button>
+        <div class="rail-dots" id="dots-0"></div>
+      </div>
+      <div class="rail-module" data-module="1">
+        <button class="rail-title" data-first="2">2. Conocimiento</button>
+        <div class="rail-dots" id="dots-1"></div>
+      </div>
+      <div class="rail-module" data-module="2">
+        <button class="rail-title" data-first="4">3. Framework</button>
+        <div class="rail-dots" id="dots-2"></div>
+      </div>
+      <div class="rail-module" data-module="3">
+        <button class="rail-title" data-first="7">4. Cambio E2E</button>
+        <div class="rail-dots" id="dots-3"></div>
+      </div>
+    </nav>
+
+    <main class="viewport" id="viewport">
+
+      <!-- ═══════════════════════════════════════════════
+           SLIDE 1 · Lo que ya tenés en la mochila
+      ════════════════════════════════════════════════ -->
+      <article class="slide is-active" data-index="0" data-module="0" data-tone="brand">
+        <div class="slide-content">
+          <p class="slide-kicker">01 · Punto de partida</p>
+          <h2>Lo que ya tenés en la mochila</h2>
+          <p>La clase pasada instalaste <strong>jr-stack</strong> en tu agente. Eso te dejó tres piezas listas para usar: el orchestrator <strong>OPSX</strong>, memoria persistente con <strong>Engram</strong> y documentación al día con <strong>Context7</strong>. Más el <strong>OpenSpec CLI</strong> instalado a parte.</p>
+          <div class="note">
+            Hoy las usamos por primera vez en un proyecto real. Si por algún motivo no tenés OpenSpec, instalalo con <code>npm install -g @fission-ai/openspec@latest</code> · <a href="https://openspec.dev/" style="color:var(--brand-300)">openspec.dev</a>
+          </div>
+          <div class="pill-row">
+            <span class="tag tag-brand">Orchestrator OPSX</span>
+            <span class="tag tag-brand">Engram</span>
+            <span class="tag tag-brand">Context7</span>
+          </div>
+        </div>
+        <figure class="slide-figure">
+          <svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="brand-fade" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#4A78BD" stop-opacity="0.18"/>
+                <stop offset="1" stop-color="#4A78BD" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <text x="260" y="32" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10" letter-spacing="2">YA INSTALADO · CLASE ANTERIOR</text>
+            <!-- 3 piezas arriba -->
+            <rect x="40" y="62" width="130" height="80" rx="14" fill="#181B23" stroke="#1F232C"/>
+            <rect x="40" y="62" width="130" height="80" rx="14" fill="url(#brand-fade)"/>
+            <text x="105" y="92" text-anchor="middle" fill="#F2F4F8" font-family="Inter,sans-serif" font-size="13" font-weight="600">Orchestrator OPSX</text>
+            <text x="105" y="110" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10">coordina el flujo</text>
+            <text x="105" y="124" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10">propose · apply · archive</text>
+
+            <rect x="195" y="62" width="130" height="80" rx="14" fill="#181B23" stroke="#1F232C"/>
+            <rect x="195" y="62" width="130" height="80" rx="14" fill="url(#brand-fade)"/>
+            <text x="260" y="92" text-anchor="middle" fill="#F2F4F8" font-family="Inter,sans-serif" font-size="13" font-weight="600">Engram</text>
+            <text x="260" y="110" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10">memoria persistente</text>
+            <text x="260" y="124" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10">sobrevive sesiones</text>
+
+            <rect x="350" y="62" width="130" height="80" rx="14" fill="#181B23" stroke="#1F232C"/>
+            <rect x="350" y="62" width="130" height="80" rx="14" fill="url(#brand-fade)"/>
+            <text x="415" y="92" text-anchor="middle" fill="#F2F4F8" font-family="Inter,sans-serif" font-size="13" font-weight="600">Context7</text>
+            <text x="415" y="110" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10">docs al día</text>
+            <text x="415" y="124" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10">de cada librería</text>
+
+            <!-- Líneas hacia abajo -->
+            <line x1="105" y1="142" x2="105" y2="200" stroke="#4A78BD" stroke-width="1" stroke-dasharray="3 4" opacity="0.5"/>
+            <line x1="260" y1="142" x2="260" y2="200" stroke="#4A78BD" stroke-width="1" stroke-dasharray="3 4" opacity="0.5"/>
+            <line x1="415" y1="142" x2="415" y2="200" stroke="#4A78BD" stroke-width="1" stroke-dasharray="3 4" opacity="0.5"/>
+
+            <!-- Caja "encendiéndose" -->
+            <rect x="80" y="210" width="360" height="100" rx="18" fill="#10141C" stroke="#4A78BD" stroke-width="1.5"/>
+            <text x="260" y="244" text-anchor="middle" fill="#6E97D1" font-family="Inter,sans-serif" font-size="11" letter-spacing="1.5">HOY</text>
+            <text x="260" y="270" text-anchor="middle" fill="#F2F4F8" font-family="Inter,sans-serif" font-size="18" font-weight="600">Lo encendemos en un proyecto real</text>
+            <text x="260" y="294" text-anchor="middle" fill="#B8BEC9" font-family="Inter,sans-serif" font-size="12">Food Store · de cero a us-000-setup archivado</text>
+
+            <text x="260" y="338" text-anchor="middle" fill="#545A6B" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="1">jr-stack ✓ · agente listo · openspec instalado</text>
+          </svg>
+        </figure>
+      </article>
+
+      <!-- ═══════════════════════════════════════════════
+           SLIDE 2 · Clonar el repo base
+      ════════════════════════════════════════════════ -->
+      <article class="slide" data-index="1" data-module="0" data-tone="brand">
+        <div class="slide-content">
+          <p class="slide-kicker">02 · Punto de partida</p>
+          <h2>Clonar el repo base</h2>
+          <p>Te damos un repositorio scaffolded: <code>backend/</code>, <code>frontend/</code>, <code>docs/</code>, <code>.gitignore</code>, <code>README</code>. <strong>No tiene código de negocio.</strong> Tiene la estructura para que arranques sin perder 20 minutos en decidir nombres de carpetas.</p>
+          <div class="note">
+            Lo que enseñamos hoy <strong>no es scaffolding</strong> — eso ya está. Lo que enseñamos es <strong>el proceso</strong>: cómo se piensa, planifica y construye un sistema con SDD.
+          </div>
+          <div class="pill-row">
+            <span class="tag tag-brand">git clone</span>
+            <span class="tag tag-brand">backend/</span>
+            <span class="tag tag-brand">frontend/</span>
+            <span class="tag tag-brand">docs/</span>
+          </div>
+        </div>
+        <figure class="slide-figure">
+          <svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg">
+            <text x="260" y="28" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10" letter-spacing="2">REPO REMOTO  →  TU MÁQUINA</text>
+
+            <!-- repo remoto -->
+            <rect x="36" y="80" width="160" height="200" rx="18" fill="#181B23" stroke="#1F232C"/>
+            <circle cx="60" cy="106" r="4" fill="#4FB286"/>
+            <text x="116" y="111" fill="#7B8294" font-family="JetBrains Mono,monospace" font-size="10">github.com</text>
+            <text x="116" y="142" text-anchor="middle" fill="#F2F4F8" font-family="Inter,sans-serif" font-size="13" font-weight="600">RepositorioBase</text>
+            <text x="116" y="160" text-anchor="middle" fill="#F2F4F8" font-family="Inter,sans-serif" font-size="13" font-weight="600">FoodStore-SDD</text>
+            <text x="116" y="190" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="11">2 commits</text>
+            <text x="116" y="208" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="11">scaffold inicial</text>
+
+            <!-- flecha -->
+            <line x1="200" y1="180" x2="280" y2="180" stroke="#4A78BD" stroke-width="2"/>
+            <polygon points="276,176 286,180 276,184" fill="#4A78BD"/>
+            <text x="240" y="170" text-anchor="middle" fill="#6E97D1" font-family="JetBrains Mono,monospace" font-size="10">git clone</text>
+
+            <!-- repo local -->
+            <rect x="296" y="60" width="200" height="240" rx="18" fill="#10141C" stroke="#4A78BD" stroke-width="1.5"/>
+            <text x="396" y="86" text-anchor="middle" fill="#6E97D1" font-family="JetBrains Mono,monospace" font-size="10">~/proyectos/foodstore</text>
+
+            <!-- contenido -->
+            <g font-family="JetBrains Mono,monospace" font-size="11" fill="#B8BEC9">
+              <text x="316" y="116">📁 backend/</text>
+              <text x="334" y="134" fill="#7B8294" font-size="10">└ app/ (vacío, capas listas)</text>
+              <text x="316" y="160">📁 frontend/</text>
+              <text x="334" y="178" fill="#7B8294" font-size="10">└ src/ (FSD scaffolded)</text>
+              <text x="316" y="204">📁 docs/</text>
+              <text x="334" y="222" fill="#7B8294" font-size="10">└ 3 archivos .txt fuente</text>
+              <text x="316" y="248">📄 README.md</text>
+              <text x="316" y="270">📄 .gitignore</text>
+            </g>
+
+            <text x="260" y="338" text-anchor="middle" fill="#545A6B" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="1">estructura, no lógica · enseñamos el proceso</text>
+          </svg>
+        </figure>
+      </article>
+
+      <!-- ═══════════════════════════════════════════════
+           SLIDE 3 · Instalar las skills
+      ════════════════════════════════════════════════ -->
+      <article class="slide" data-index="2" data-module="1" data-tone="info">
+        <div class="slide-content">
+          <p class="slide-kicker">03 · Conocimiento</p>
+          <h2>Instalar las skills</h2>
+          <p>Dos skills, una sola vez. <strong>find-skills</strong> de Vercel Labs te deja descubrir y agregar más sin salir del agente. <strong>kb-creator</strong> es la nuestra: convierte documentos fuente en una base de conocimiento estructurada.</p>
+          <div class="note">
+            Las skills viven en <code>~/.agents/skills/</code> y se symlinkean a cada agente, <strong>no en el repo</strong>. Se instalan una vez por máquina y quedan disponibles en Claude Code, Cursor, OpenCode y más.
+          </div>
+          <div class="pill-row">
+            <span class="tag tag-info">npx skills add</span>
+            <span class="tag tag-info">find-skills</span>
+            <span class="tag tag-info">kb-creator</span>
+          </div>
+        </div>
+        <figure class="slide-figure">
+          <svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg">
+            <text x="260" y="28" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10" letter-spacing="2">2 SKILLS  →  REGISTRY GLOBAL</text>
+
+            <!-- skill 1 -->
+            <rect x="36" y="68" width="190" height="100" rx="14" fill="#181B23" stroke="#1F232C"/>
+            <text x="131" y="98" text-anchor="middle" fill="#8BB1DD" font-family="JetBrains Mono,monospace" font-size="11" font-weight="500">find-skills</text>
+            <text x="131" y="120" text-anchor="middle" fill="#F2F4F8" font-family="Inter,sans-serif" font-size="12">Vercel Labs</text>
+            <text x="131" y="138" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10">descubrir + instalar</text>
+            <text x="131" y="152" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10">desde el marketplace</text>
+
+            <!-- skill 2 -->
+            <rect x="294" y="68" width="190" height="100" rx="14" fill="#181B23" stroke="#1F232C"/>
+            <text x="389" y="98" text-anchor="middle" fill="#8BB1DD" font-family="JetBrains Mono,monospace" font-size="11" font-weight="500">kb-creator</text>
+            <text x="389" y="120" text-anchor="middle" fill="#F2F4F8" font-family="Inter,sans-serif" font-size="12">Construye la KB</text>
+            <text x="389" y="138" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10">modo silencioso o</text>
+            <text x="389" y="152" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10">conversacional</text>
+
+            <!-- flechas hacia abajo -->
+            <line x1="131" y1="170" x2="131" y2="220" stroke="#5A8FCC" stroke-width="1.5"/>
+            <polygon points="127,216 131,224 135,216" fill="#5A8FCC"/>
+            <line x1="389" y1="170" x2="389" y2="220" stroke="#5A8FCC" stroke-width="1.5"/>
+            <polygon points="385,216 389,224 393,216" fill="#5A8FCC"/>
+
+            <!-- registry -->
+            <rect x="60" y="232" width="400" height="86" rx="18" fill="#10141C" stroke="#5A8FCC" stroke-width="1.5"/>
+            <text x="260" y="258" text-anchor="middle" fill="#7B8294" font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="1">~/.agents/skills/  ·  global</text>
+            <text x="260" y="282" text-anchor="middle" fill="#F2F4F8" font-family="Inter,sans-serif" font-size="14" font-weight="600">Registry de skills del agente</text>
+            <text x="260" y="304" text-anchor="middle" fill="#B8BEC9" font-family="Inter,sans-serif" font-size="11">disponibles en todos tus proyectos</text>
+
+            <text x="260" y="346" text-anchor="middle" fill="#545A6B" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="1">npx skills add &lt;repo&gt;  ·  no toca el repo del proyecto</text>
+          </svg>
+        </figure>
+      </article>
+
+      <!-- ═══════════════════════════════════════════════
+           SLIDE 4 · Generar la base de conocimiento
+      ════════════════════════════════════════════════ -->
+      <article class="slide" data-index="3" data-module="1" data-tone="info">
+        <div class="slide-content">
+          <p class="slide-kicker">04 · Conocimiento</p>
+          <h2>Generar la base de conocimiento</h2>
+          <p>Tres documentos monolíticos en <code>docs/</code> entran a la skill. Salen <strong>10 archivos canónicos</strong> en <code>knowledge-base/</code>: visión, datos, reglas, flujos, arquitectura, decisiones, preguntas abiertas. La fuente es el documento — la KB es el contrato.</p>
+          <div class="note">
+            La KB es lo que el agente consulta antes de proponer cualquier cambio. Si algo no está acá, no existe para él. <strong>Una KB clara es lo que separa el SDD del vibe coding.</strong>
+          </div>
+        </div>
+        <figure class="slide-figure">
+          <svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg">
+            <text x="260" y="26" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10" letter-spacing="2">DOCS FUENTE  →  KB ESTRUCTURADA</text>
+
+            <!-- 3 .txt -->
+            <rect x="30" y="60" width="140" height="44" rx="10" fill="#181B23" stroke="#1F232C"/>
+            <text x="100" y="78" text-anchor="middle" fill="#F2F4F8" font-family="JetBrains Mono,monospace" font-size="10">Descripcion.txt</text>
+            <text x="100" y="94" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="9">visión, actores, stack</text>
+            <rect x="30" y="114" width="140" height="44" rx="10" fill="#181B23" stroke="#1F232C"/>
+            <text x="100" y="132" text-anchor="middle" fill="#F2F4F8" font-family="JetBrains Mono,monospace" font-size="10">Integrador.txt</text>
+            <text x="100" y="148" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="9">arquitectura, ERD, API</text>
+            <rect x="30" y="168" width="140" height="44" rx="10" fill="#181B23" stroke="#1F232C"/>
+            <text x="100" y="186" text-anchor="middle" fill="#F2F4F8" font-family="JetBrains Mono,monospace" font-size="10">Historias.txt</text>
+            <text x="100" y="202" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="9">US-000 → US-076</text>
+
+            <!-- skill -->
+            <rect x="195" y="115" width="120" height="50" rx="14" fill="#10141C" stroke="#5A8FCC" stroke-width="1.5"/>
+            <text x="255" y="138" text-anchor="middle" fill="#8BB1DD" font-family="JetBrains Mono,monospace" font-size="11" font-weight="500">kb-creator</text>
+            <text x="255" y="154" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="9">analiza y estructura</text>
+
+            <line x1="170" y1="140" x2="195" y2="140" stroke="#5A8FCC" stroke-width="1.5"/>
+            <polygon points="191,136 199,140 191,144" fill="#5A8FCC"/>
+            <line x1="315" y1="140" x2="340" y2="140" stroke="#5A8FCC" stroke-width="1.5"/>
+            <polygon points="336,136 344,140 336,144" fill="#5A8FCC"/>
+
+            <!-- 10 archivos -->
+            <rect x="340" y="48" width="160" height="266" rx="14" fill="#10141C" stroke="#5A8FCC" stroke-width="1"/>
+            <text x="420" y="72" text-anchor="middle" fill="#8BB1DD" font-family="JetBrains Mono,monospace" font-size="10">knowledge-base/</text>
+            <g font-family="JetBrains Mono,monospace" font-size="9.5" fill="#B8BEC9">
+              <text x="354" y="98">01_vision_y_objetivos</text>
+              <text x="354" y="118">02_descripcion_general</text>
+              <text x="354" y="138">03_actores_y_roles</text>
+              <text x="354" y="158">04_modelo_de_datos</text>
+              <text x="354" y="178">05_reglas_de_negocio</text>
+              <text x="354" y="198">06_funcionalidades</text>
+              <text x="354" y="218">07_flujos_principales</text>
+              <text x="354" y="238">08_arquitectura</text>
+              <text x="354" y="258">09_decisiones_y_supuestos</text>
+              <text x="354" y="278">10_preguntas_abiertas</text>
+              <text x="354" y="300" fill="#7B8294" font-size="9">+ README.md (índice)</text>
+            </g>
+
+            <text x="260" y="346" text-anchor="middle" fill="#545A6B" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="1">contrato fijo · 10 canónicos · permite extras 11_*, 12_*</text>
+          </svg>
+        </figure>
+      </article>
+
+      <!-- ═══════════════════════════════════════════════
+           SLIDE 5 · Inicializar OpenSpec
+      ════════════════════════════════════════════════ -->
+      <article class="slide" data-index="4" data-module="2" data-tone="success">
+        <div class="slide-content">
+          <p class="slide-kicker">05 · Framework</p>
+          <h2>Inicializar OpenSpec</h2>
+          <p>Requisito: tener instalado el <strong>OpenSpec CLI</strong> (<code>npm install -g @fission-ai/openspec@latest</code>). Después, un comando crea la carpeta <code>openspec/</code> donde van a vivir los specs y los changes, más las skills y commands del flujo OPSX adaptados a tu agente.</p>
+          <div class="note">
+            Le decimos qué agente vamos a usar — <code>opencode</code>, <code>claude</code>, ambos — y prepara las instrucciones. <strong>El agente reinicia y ya tiene <code>/opsx:propose</code>, <code>/opsx:apply</code>, <code>/opsx:archive</code> listos.</strong> Más info en <a href="https://openspec.dev/" style="color:var(--success-fg)">openspec.dev</a>.
+          </div>
+          <div class="pill-row">
+            <span class="tag tag-success">openspec init</span>
+            <span class="tag tag-success">openspec/</span>
+            <span class="tag tag-success">.claude/</span>
+            <span class="tag tag-success">.opencode/</span>
+          </div>
+        </div>
+        <figure class="slide-figure">
+          <svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg">
+            <text x="260" y="26" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10" letter-spacing="2">UN COMANDO  ·  3 CARPETAS</text>
+
+            <!-- comando -->
+            <rect x="60" y="58" width="400" height="50" rx="10" fill="#181B23" stroke="#1F232C"/>
+            <text x="80" y="80" fill="#7CD0A8" font-family="JetBrains Mono,monospace" font-size="11">$</text>
+            <text x="100" y="80" fill="#F2F4F8" font-family="JetBrains Mono,monospace" font-size="11">openspec init --tools opencode,claude</text>
+            <text x="80" y="98" fill="#7B8294" font-family="Inter,sans-serif" font-size="10">crea estructura, configura skills y comandos del agente</text>
+
+            <line x1="260" y1="115" x2="260" y2="138" stroke="#7CD0A8" stroke-width="1.5"/>
+            <polygon points="256,134 260,142 264,134" fill="#7CD0A8"/>
+
+            <!-- 3 carpetas resultado -->
+            <rect x="36" y="150" width="140" height="170" rx="14" fill="#10141C" stroke="#7CD0A8" stroke-width="1.5"/>
+            <text x="106" y="174" text-anchor="middle" fill="#7CD0A8" font-family="JetBrains Mono,monospace" font-size="10">openspec/</text>
+            <g font-family="JetBrains Mono,monospace" font-size="9.5" fill="#B8BEC9">
+              <text x="50" y="200">specs/</text>
+              <text x="60" y="216" fill="#7B8294" font-size="9">capabilities</text>
+              <text x="50" y="240">changes/</text>
+              <text x="60" y="256" fill="#7B8294" font-size="9">propuestas</text>
+              <text x="50" y="280">config.yaml</text>
+              <text x="60" y="296" fill="#7B8294" font-size="9">contexto + reglas</text>
+            </g>
+
+            <rect x="190" y="150" width="140" height="170" rx="14" fill="#10141C" stroke="#1F232C"/>
+            <text x="260" y="174" text-anchor="middle" fill="#8BB1DD" font-family="JetBrains Mono,monospace" font-size="10">.claude/</text>
+            <g font-family="JetBrains Mono,monospace" font-size="9.5" fill="#B8BEC9">
+              <text x="204" y="200">commands/</text>
+              <text x="214" y="216" fill="#7B8294" font-size="9">/opsx:explore</text>
+              <text x="214" y="232" fill="#7B8294" font-size="9">/opsx:propose</text>
+              <text x="214" y="248" fill="#7B8294" font-size="9">/opsx:apply</text>
+              <text x="214" y="264" fill="#7B8294" font-size="9">/opsx:archive</text>
+              <text x="204" y="288">skills/</text>
+              <text x="214" y="304" fill="#7B8294" font-size="9">openspec-*</text>
+            </g>
+
+            <rect x="344" y="150" width="140" height="170" rx="14" fill="#10141C" stroke="#1F232C"/>
+            <text x="414" y="174" text-anchor="middle" fill="#8BB1DD" font-family="JetBrains Mono,monospace" font-size="10">.opencode/</text>
+            <g font-family="JetBrains Mono,monospace" font-size="9.5" fill="#B8BEC9">
+              <text x="358" y="200">commands/</text>
+              <text x="368" y="216" fill="#7B8294" font-size="9">opsx-explore</text>
+              <text x="368" y="232" fill="#7B8294" font-size="9">opsx-propose</text>
+              <text x="368" y="248" fill="#7B8294" font-size="9">opsx-apply</text>
+              <text x="368" y="264" fill="#7B8294" font-size="9">opsx-archive</text>
+              <text x="358" y="288">skills/</text>
+              <text x="368" y="304" fill="#7B8294" font-size="9">openspec-*</text>
+            </g>
+
+            <text x="260" y="348" text-anchor="middle" fill="#545A6B" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="1">17 archivos · reiniciar el agente para que cargue los comandos</text>
+          </svg>
+        </figure>
+      </article>
+
+      <!-- ═══════════════════════════════════════════════
+           SLIDE 6 · Configurar AGENTS.md
+      ════════════════════════════════════════════════ -->
+      <article class="slide" data-index="5" data-module="2" data-tone="success">
+        <div class="slide-content">
+          <p class="slide-kicker">06 · Framework</p>
+          <h2>Configurar AGENTS.md</h2>
+          <p>El archivo que el agente lee <strong>antes de cada acción no trivial</strong>. Stack, rutas, convenciones de naming, reglas duras, skills disponibles. Si la KB es <em>qué</em> construimos, AGENTS.md es <em>cómo</em> trabajamos.</p>
+          <div class="note">
+            <strong>Reglas duras</strong> que vale la pena dejar explícitas: no buildear automático, no commitear sin pedido, conventional commits sin Co-Authored-By, tests sin mocks de DB. Con esto, el agente deja de pelearse con vos.
+          </div>
+        </div>
+        <figure class="slide-figure">
+          <svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg">
+            <text x="260" y="26" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10" letter-spacing="2">REGLAS DEL PROYECTO  ·  FUENTE DE VERDAD</text>
+
+            <!-- AGENTS.md -->
+            <rect x="80" y="50" width="360" height="220" rx="18" fill="#10141C" stroke="#7CD0A8" stroke-width="1.5"/>
+            <rect x="80" y="50" width="360" height="36" rx="18" fill="rgba(124,208,168,0.08)"/>
+            <text x="260" y="74" text-anchor="middle" fill="#7CD0A8" font-family="JetBrains Mono,monospace" font-size="12" font-weight="500">AGENTS.md</text>
+
+            <g font-family="Inter,sans-serif" font-size="11">
+              <!-- col 1 -->
+              <text x="100" y="110" fill="#7B8294" font-size="9" letter-spacing="1.5">STACK</text>
+              <text x="100" y="128" fill="#B8BEC9">FastAPI · SQLModel · Postgres</text>
+              <text x="100" y="144" fill="#B8BEC9">React · TS · Vite · Zustand</text>
+
+              <text x="100" y="172" fill="#7B8294" font-size="9" letter-spacing="1.5">CONOCIMIENTO</text>
+              <text x="100" y="190" fill="#B8BEC9">knowledge-base/ es la verdad</text>
+              <text x="100" y="206" fill="#B8BEC9">openspec/roadmap.md ordena</text>
+
+              <text x="100" y="234" fill="#7B8294" font-size="9" letter-spacing="1.5">SKILLS DISPONIBLES</text>
+              <text x="100" y="252" fill="#B8BEC9">kb-creator · roadmap-generator</text>
+            </g>
+
+            <!-- separador vertical -->
+            <line x1="260" y1="100" x2="260" y2="258" stroke="#1F232C" stroke-width="1"/>
+
+            <g font-family="Inter,sans-serif" font-size="11">
+              <!-- col 2 -->
+              <text x="280" y="110" fill="#7B8294" font-size="9" letter-spacing="1.5">REGLAS DURAS</text>
+              <text x="280" y="128" fill="#B8BEC9">— No buildear automático</text>
+              <text x="280" y="144" fill="#B8BEC9">— No commitear sin pedido</text>
+              <text x="280" y="160" fill="#B8BEC9">— Conventional Commits</text>
+              <text x="280" y="176" fill="#B8BEC9">— Tests sin mocks de DB</text>
+
+              <text x="280" y="204" fill="#7B8294" font-size="9" letter-spacing="1.5">CONVENCIONES</text>
+              <text x="280" y="222" fill="#B8BEC9">kebab-case en changes</text>
+              <text x="280" y="238" fill="#B8BEC9">us-NNN- prefix</text>
+              <text x="280" y="254" fill="#B8BEC9">snake_case Py · PascalCase TSX</text>
+            </g>
+
+            <!-- agente abajo -->
+            <line x1="260" y1="270" x2="260" y2="300" stroke="#7CD0A8" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <polygon points="256,296 260,304 264,296" fill="#7CD0A8"/>
+            <rect x="180" y="305" width="160" height="38" rx="12" fill="#181B23" stroke="#1F232C"/>
+            <text x="260" y="328" text-anchor="middle" fill="#F2F4F8" font-family="Inter,sans-serif" font-size="12" font-weight="500">Agente IA  ·  lo lee siempre</text>
+          </svg>
+        </figure>
+      </article>
+
+      <!-- ═══════════════════════════════════════════════
+           SLIDE 7 · Trazar el roadmap
+      ════════════════════════════════════════════════ -->
+      <article class="slide" data-index="6" data-module="2" data-tone="success">
+        <div class="slide-content">
+          <p class="slide-kicker">07 · Framework</p>
+          <h2>Trazar el roadmap</h2>
+          <p>La skill <strong>roadmap-generator</strong> lee la KB, identifica las capacidades, infiere dependencias técnicas y emite <code>openspec/roadmap.md</code>: tabla de changes con orden, justificación, y sugerencia del primer change a ejecutar.</p>
+          <div class="note">
+            Acá no se escribe una sola línea de código. Se decide <strong>en qué orden</strong> implementar y <strong>por qué</strong>. Auth antes que recursos protegidos, modelo de datos antes que CRUD, integraciones externas al final.
+          </div>
+        </div>
+        <figure class="slide-figure">
+          <svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg">
+            <text x="260" y="24" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10" letter-spacing="2">10 CHANGES  ·  ORDEN + JUSTIFICACIÓN</text>
+
+            <!-- tabla -->
+            <rect x="36" y="48" width="448" height="282" rx="14" fill="#10141C" stroke="#7CD0A8" stroke-width="1"/>
+
+            <!-- header -->
+            <rect x="36" y="48" width="448" height="32" rx="14" fill="rgba(124,208,168,0.06)"/>
+            <text x="58" y="68" fill="#7CD0A8" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="1.2">CHANGE</text>
+            <text x="270" y="68" fill="#7CD0A8" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="1.2">DEPENDE DE</text>
+
+            <g font-family="JetBrains Mono,monospace" font-size="10">
+              <text x="58" y="100" fill="#F2F4F8">us-000-setup</text>
+              <text x="270" y="100" fill="#7B8294">—</text>
+
+              <text x="58" y="124" fill="#F2F4F8">us-001-auth</text>
+              <text x="270" y="124" fill="#B8BEC9">us-000-setup</text>
+
+              <text x="58" y="148" fill="#F2F4F8">us-002-categorias</text>
+              <text x="270" y="148" fill="#B8BEC9">us-001-auth</text>
+
+              <text x="58" y="172" fill="#F2F4F8">us-003-productos</text>
+              <text x="270" y="172" fill="#B8BEC9">us-002-categorias</text>
+
+              <text x="58" y="196" fill="#F2F4F8">us-004-perfil</text>
+              <text x="270" y="196" fill="#B8BEC9">us-001-auth</text>
+
+              <text x="58" y="220" fill="#F2F4F8">us-005-direcciones</text>
+              <text x="270" y="220" fill="#B8BEC9">us-001-auth</text>
+
+              <text x="58" y="244" fill="#F2F4F8">us-006-carrito</text>
+              <text x="270" y="244" fill="#B8BEC9">us-003-productos</text>
+
+              <text x="58" y="268" fill="#F2F4F8">us-007-pedidos</text>
+              <text x="270" y="268" fill="#B8BEC9">us-006 · us-005</text>
+
+              <text x="58" y="292" fill="#F2F4F8">us-008-pagos-mp</text>
+              <text x="270" y="292" fill="#B8BEC9">us-007-pedidos</text>
+
+              <text x="58" y="316" fill="#F2F4F8">us-009-admin</text>
+              <text x="270" y="316" fill="#B8BEC9">us-008-pagos-mp</text>
+            </g>
+
+            <text x="260" y="354" text-anchor="middle" fill="#545A6B" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="1">próximo paso sugerido: /opsx:propose us-000-setup</text>
+          </svg>
+        </figure>
+      </article>
+
+      <!-- ═══════════════════════════════════════════════
+           SLIDE 8 · us-000-setup E2E
+      ════════════════════════════════════════════════ -->
+      <article class="slide" data-index="7" data-module="3" data-tone="warning">
+        <div class="slide-content">
+          <p class="slide-kicker">08 · Cambio E2E</p>
+          <h2>us-000-setup de punta a punta</h2>
+          <p>El primer change del roadmap: infraestructura base. Tres comandos OPSX, tres etapas, un solo flujo. Acá se ve <strong>qué hace cada uno</strong> y <strong>qué deja en el repo</strong>.</p>
+          <div class="note">
+            En vivo, si el agente demora más de la cuenta, saltamos al tag pre-cocinado del paso correspondiente y mostramos el resultado. La narrativa no se rompe, el reloj tampoco.
+          </div>
+          <div class="pill-row">
+            <span class="tag tag-warning">/opsx:propose</span>
+            <span class="tag tag-warning">/opsx:apply</span>
+            <span class="tag tag-warning">/opsx:archive</span>
+          </div>
+        </div>
+        <figure class="slide-figure">
+          <svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg">
+            <text x="260" y="24" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10" letter-spacing="2">3 COMANDOS  ·  3 ETAPAS  ·  1 CHANGE</text>
+
+            <!-- propose -->
+            <rect x="20" y="48" width="160" height="270" rx="14" fill="#181B23" stroke="#ECC07A" stroke-width="1"/>
+            <rect x="20" y="48" width="160" height="36" rx="14" fill="rgba(236,192,122,0.06)"/>
+            <text x="100" y="71" text-anchor="middle" fill="#ECC07A" font-family="JetBrains Mono,monospace" font-size="11" font-weight="500">/opsx:propose</text>
+            <text x="100" y="106" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="9" letter-spacing="1">QUÉ DEJA</text>
+            <g font-family="JetBrains Mono,monospace" font-size="9" fill="#B8BEC9">
+              <text x="35" y="132">proposal.md</text>
+              <text x="45" y="146" fill="#7B8294">qué + por qué</text>
+              <text x="35" y="170">design.md</text>
+              <text x="45" y="184" fill="#7B8294">cómo + decisiones</text>
+              <text x="35" y="208">specs/...</text>
+              <text x="45" y="222" fill="#7B8294">requirements +</text>
+              <text x="45" y="234" fill="#7B8294">scenarios</text>
+              <text x="35" y="258">tasks.md</text>
+              <text x="45" y="272" fill="#7B8294">checklist atómica</text>
+            </g>
+            <text x="100" y="304" text-anchor="middle" fill="#ECC07A" font-family="JetBrains Mono,monospace" font-size="9">step-7a-proposed</text>
+
+            <!-- arrow -->
+            <line x1="180" y1="180" x2="200" y2="180" stroke="#ECC07A" stroke-width="1.5"/>
+            <polygon points="196,176 204,180 196,184" fill="#ECC07A"/>
+
+            <!-- apply -->
+            <rect x="200" y="48" width="160" height="270" rx="14" fill="#181B23" stroke="#ECC07A" stroke-width="1"/>
+            <rect x="200" y="48" width="160" height="36" rx="14" fill="rgba(236,192,122,0.06)"/>
+            <text x="280" y="71" text-anchor="middle" fill="#ECC07A" font-family="JetBrains Mono,monospace" font-size="11" font-weight="500">/opsx:apply</text>
+            <text x="280" y="106" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="9" letter-spacing="1">QUÉ DEJA</text>
+            <g font-family="JetBrains Mono,monospace" font-size="9" fill="#B8BEC9">
+              <text x="215" y="132">backend/app/...</text>
+              <text x="225" y="146" fill="#7B8294">FastAPI + SQLModel</text>
+              <text x="225" y="158" fill="#7B8294">BaseRepo + UoW</text>
+              <text x="215" y="182">backend/alembic/</text>
+              <text x="225" y="196" fill="#7B8294">migración inicial</text>
+              <text x="215" y="220">frontend/src/...</text>
+              <text x="225" y="234" fill="#7B8294">Vite + 4 stores</text>
+              <text x="225" y="246" fill="#7B8294">Zustand persistidos</text>
+              <text x="215" y="270">tests/...</text>
+              <text x="225" y="284" fill="#7B8294">smoke + TDD</text>
+            </g>
+            <text x="280" y="304" text-anchor="middle" fill="#ECC07A" font-family="JetBrains Mono,monospace" font-size="9">step-7b-applied</text>
+
+            <line x1="360" y1="180" x2="380" y2="180" stroke="#ECC07A" stroke-width="1.5"/>
+            <polygon points="376,176 384,180 376,184" fill="#ECC07A"/>
+
+            <!-- archive -->
+            <rect x="380" y="48" width="120" height="270" rx="14" fill="#181B23" stroke="#ECC07A" stroke-width="1"/>
+            <rect x="380" y="48" width="120" height="36" rx="14" fill="rgba(236,192,122,0.06)"/>
+            <text x="440" y="71" text-anchor="middle" fill="#ECC07A" font-family="JetBrains Mono,monospace" font-size="11" font-weight="500">/opsx:archive</text>
+            <text x="440" y="106" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="9" letter-spacing="1">QUÉ DEJA</text>
+            <g font-family="JetBrains Mono,monospace" font-size="9" fill="#B8BEC9">
+              <text x="392" y="132">specs/</text>
+              <text x="392" y="148" fill="#7B8294" font-size="8.5">capabilities</text>
+              <text x="392" y="160" fill="#7B8294" font-size="8.5">consolidadas</text>
+              <text x="392" y="186">archive/</text>
+              <text x="392" y="202" fill="#7B8294" font-size="8.5">YYYY-MM-DD-</text>
+              <text x="392" y="214" fill="#7B8294" font-size="8.5">us-000-setup/</text>
+              <text x="392" y="244" fill="#7CD0A8" font-size="9">change cerrado</text>
+              <text x="392" y="262" fill="#7B8294" font-size="8.5">listo para el</text>
+              <text x="392" y="274" fill="#7B8294" font-size="8.5">próximo</text>
+            </g>
+            <text x="440" y="304" text-anchor="middle" fill="#ECC07A" font-family="JetBrains Mono,monospace" font-size="9">step-7c-archived</text>
+
+            <text x="260" y="346" text-anchor="middle" fill="#545A6B" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="1">si el agente demora · git checkout step-7X · seguimos</text>
+          </svg>
+        </figure>
+      </article>
+
+      <!-- ═══════════════════════════════════════════════
+           SLIDE 9 · Lo que se llevan
+      ════════════════════════════════════════════════ -->
+      <article class="slide" data-index="8" data-module="3" data-tone="brand">
+        <div class="slide-content">
+          <p class="slide-kicker">09 · Cierre</p>
+          <h2>Lo que se llevan</h2>
+          <p>No se llevan código de Food Store — se llevan <strong>el método</strong>. Tres cosas: una forma de trabajar, dos skills reusables en cualquier proyecto, y el hábito de escribir specs antes de tocar el editor.</p>
+          <div class="note">
+            El siguiente paso es de ustedes. Tomen su propio proyecto, corran <code>kb-creator</code>, generen el roadmap, y propongan el primer change. <strong>El método se aprende usándolo.</strong>
+          </div>
+        </div>
+        <figure class="slide-figure">
+          <svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="closing-fade" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#4A78BD" stop-opacity="0.18"/>
+                <stop offset="1" stop-color="#4A78BD" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <text x="260" y="28" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10" letter-spacing="2">3 COSAS QUE SE LLEVAN</text>
+
+            <!-- card 1 -->
+            <rect x="30" y="60" width="150" height="220" rx="16" fill="#181B23" stroke="#1F232C"/>
+            <rect x="30" y="60" width="150" height="220" rx="16" fill="url(#closing-fade)"/>
+            <text x="105" y="92" text-anchor="middle" fill="#6E97D1" font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="1.5">01</text>
+            <text x="105" y="118" text-anchor="middle" fill="#F2F4F8" font-family="Inter,sans-serif" font-size="14" font-weight="600">Método</text>
+            <text x="105" y="156" text-anchor="middle" fill="#B8BEC9" font-family="Inter,sans-serif" font-size="11">SDD con OPSX</text>
+            <text x="105" y="176" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10">propose · apply · archive</text>
+            <text x="105" y="196" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10">en cualquier stack</text>
+            <line x1="60" y1="220" x2="150" y2="220" stroke="#1F232C" stroke-width="1"/>
+            <text x="105" y="244" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10">El humano dirige</text>
+            <text x="105" y="260" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10">el agente ejecuta</text>
+
+            <!-- card 2 -->
+            <rect x="190" y="60" width="150" height="220" rx="16" fill="#181B23" stroke="#1F232C"/>
+            <rect x="190" y="60" width="150" height="220" rx="16" fill="url(#closing-fade)"/>
+            <text x="265" y="92" text-anchor="middle" fill="#6E97D1" font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="1.5">02</text>
+            <text x="265" y="118" text-anchor="middle" fill="#F2F4F8" font-family="Inter,sans-serif" font-size="14" font-weight="600">Skills</text>
+            <text x="265" y="156" text-anchor="middle" fill="#B8BEC9" font-family="Inter,sans-serif" font-size="11">kb-creator</text>
+            <text x="265" y="176" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10">para tu próximo</text>
+            <text x="265" y="192" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10">proyecto</text>
+            <line x1="220" y1="220" x2="310" y2="220" stroke="#1F232C" stroke-width="1"/>
+            <text x="265" y="244" text-anchor="middle" fill="#B8BEC9" font-family="Inter,sans-serif" font-size="11">roadmap-generator</text>
+            <text x="265" y="262" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10">para cualquier dominio</text>
+
+            <!-- card 3 -->
+            <rect x="350" y="60" width="150" height="220" rx="16" fill="#181B23" stroke="#1F232C"/>
+            <rect x="350" y="60" width="150" height="220" rx="16" fill="url(#closing-fade)"/>
+            <text x="425" y="92" text-anchor="middle" fill="#6E97D1" font-family="JetBrains Mono,monospace" font-size="10" letter-spacing="1.5">03</text>
+            <text x="425" y="118" text-anchor="middle" fill="#F2F4F8" font-family="Inter,sans-serif" font-size="14" font-weight="600">Hábito</text>
+            <text x="425" y="156" text-anchor="middle" fill="#B8BEC9" font-family="Inter,sans-serif" font-size="11">Specs antes</text>
+            <text x="425" y="176" text-anchor="middle" fill="#B8BEC9" font-family="Inter,sans-serif" font-size="11">de código</text>
+            <line x1="380" y1="200" x2="470" y2="200" stroke="#1F232C" stroke-width="1"/>
+            <text x="425" y="224" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10">Pensar el qué</text>
+            <text x="425" y="240" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10">antes del cómo</text>
+            <text x="425" y="262" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10">y trazarlo</text>
+
+            <text x="260" y="332" text-anchor="middle" fill="#F2F4F8" font-family="Inter,sans-serif" font-size="13" font-weight="500">El método se aprende usándolo</text>
+            <text x="260" y="350" text-anchor="middle" fill="#545A6B" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="1">tu turno · tu proyecto · /opsx:propose</text>
+          </svg>
+        </figure>
+      </article>
+
+    </main>
+  </div>
+</div>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
