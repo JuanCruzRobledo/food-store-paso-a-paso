@@ -92,35 +92,35 @@ Abrir `openspec/config.yaml` para mostrar dónde se va a configurar el contexto.
 
 ---
 
-## Slide 06 · Configurar AGENTS.md — `5 min`
+## Slide 06 · Trazar el CHANGES.md — `10 min`
 
 **Qué decir**:
-> "AGENTS.md es lo que el agente lee antes de cada acción no trivial. Stack, dónde está la KB, qué skills tenemos, y reglas duras: no buildear, no commitear sin pedido, conventional commits, tests sin mocks. Con esto, el agente deja de pelearse con vos sobre cómo trabajar."
-
-**Qué hacer en vivo**:
-- Crear `AGENTS.md` en raíz pidiéndole al agente: *"creá un AGENTS.md con el stack, la KB en knowledge-base/, las reglas duras y las skills disponibles"*.
-- Mostrar el archivo generado.
-- También abrir `openspec/config.yaml` y agregar el `context` y `rules` que el agente respeta para los artefactos.
-
-**Si demora** → `git checkout step-5-agents-configured`. Mostrar el `AGENTS.md` y `openspec/config.yaml` ya armados.
-
-**Tag de salida**: `step-5-agents-configured`.
-
----
-
-## Slide 07 · Trazar el CHANGES.md — `10 min`
-
-**Qué decir**:
-> "Acá no se escribe ni una línea de código. Se decide el orden, el porqué y cómo paralelizar el trabajo. La skill roadmap-generator lee la KB y emite CHANGES.md en la raíz con árbol de dependencias, gates de paralelismo, camino crítico y, por cada change, scope detallado + nivel de governance + qué archivos KB hay que leer antes."
+> "Acá no se escribe ni una línea de código. Se decide el orden, el porqué y cómo paralelizar el trabajo. La skill roadmap-generator lee la KB y emite CHANGES.md en la raíz con árbol de dependencias, gates de paralelismo, camino crítico y, por cada change, scope detallado + nivel de governance + qué archivos KB hay que leer antes. **El mapa va primero — AGENTS.md después lo referencia.**"
 
 **Qué hacer en vivo**:
 - Pedirle al agente: *"generá el CHANGES.md del proyecto"*.
 - Cuando termina, abrir `CHANGES.md` (raíz) y recorrer: árbol de dependencias, gates, camino crítico, un change al azar para mostrar el formato.
 - Recorrer 2-3 dependencias en voz alta para mostrar el "por qué".
 
-**Si demora** → `git checkout step-6-roadmap-done`.
+**Si demora** → `git checkout step-5-roadmap-done`.
 
-**Tag de salida**: `step-6-roadmap-done`.
+**Tag de salida**: `step-5-roadmap-done`.
+
+---
+
+## Slide 07 · Configurar AGENTS.md — `5 min`
+
+**Qué decir**:
+> "Ahora AGENTS.md, que es lo que el agente lee antes de cada acción no trivial. Stack, dónde está la KB, ruta al CHANGES.md que recién generamos, qué skills tenemos, y reglas duras: no buildear, no commitear sin pedido, conventional commits, tests sin mocks. Con esto, el agente deja de pelearse con vos sobre cómo trabajar."
+
+**Qué hacer en vivo**:
+- Crear `AGENTS.md` en raíz pidiéndole al agente: *"creá un AGENTS.md con el stack, la KB en knowledge-base/, la ruta al CHANGES.md (raíz), las reglas duras y las skills disponibles"*.
+- Mostrar el archivo generado.
+- También abrir `openspec/config.yaml` y agregar el `context` y `rules` que el agente respeta para los artefactos.
+
+**Si demora** → `git checkout step-6-agents-configured`. Mostrar el `AGENTS.md` y `openspec/config.yaml` ya armados.
+
+**Tag de salida**: `step-6-agents-configured`.
 
 ---
 

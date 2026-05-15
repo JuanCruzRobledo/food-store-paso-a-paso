@@ -354,13 +354,74 @@
       </article>
 
       <!-- ═══════════════════════════════════════════════
-           SLIDE 6 · Configurar AGENTS.md
+           SLIDE 6 · Trazar el CHANGES.md
       ════════════════════════════════════════════════ -->
       <article class="slide" data-index="5" data-module="2" data-tone="success">
         <div class="slide-content">
           <p class="slide-kicker">06 · Framework</p>
+          <h2>Trazar el CHANGES.md</h2>
+          <p>La skill <strong>roadmap-generator</strong> lee la KB y emite <code>CHANGES.md</code> en la raíz: árbol de dependencias, gates de paralelismo, camino crítico, plan con N agentes, y por cada change scope detallado + governance + qué archivos KB leer antes.</p>
+          <div class="note">
+            Acá no se escribe una sola línea de código. Se decide <strong>en qué orden</strong> implementar, <strong>por qué</strong>, y <strong>qué se puede paralelizar</strong>. El resultado es operativo, no informativo. <strong>El mapa va primero — después AGENTS.md lo referencia.</strong>
+          </div>
+        </div>
+        <figure class="slide-figure">
+          <svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg">
+            <text x="260" y="24" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10" letter-spacing="2">10 CHANGES  ·  ORDEN + JUSTIFICACIÓN</text>
+
+            <!-- tabla -->
+            <rect x="36" y="48" width="448" height="282" rx="14" fill="#10141C" stroke="#7CD0A8" stroke-width="1"/>
+
+            <!-- header -->
+            <rect x="36" y="48" width="448" height="32" rx="14" fill="rgba(124,208,168,0.06)"/>
+            <text x="58" y="68" fill="#7CD0A8" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="1.2">CHANGE</text>
+            <text x="270" y="68" fill="#7CD0A8" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="1.2">DEPENDE DE</text>
+
+            <g font-family="JetBrains Mono,monospace" font-size="10">
+              <text x="58" y="100" fill="#F2F4F8">us-000-setup</text>
+              <text x="270" y="100" fill="#7B8294">—</text>
+
+              <text x="58" y="124" fill="#F2F4F8">us-001-auth</text>
+              <text x="270" y="124" fill="#B8BEC9">us-000-setup</text>
+
+              <text x="58" y="148" fill="#F2F4F8">us-002-categorias</text>
+              <text x="270" y="148" fill="#B8BEC9">us-001-auth</text>
+
+              <text x="58" y="172" fill="#F2F4F8">us-003-productos</text>
+              <text x="270" y="172" fill="#B8BEC9">us-002-categorias</text>
+
+              <text x="58" y="196" fill="#F2F4F8">us-004-perfil</text>
+              <text x="270" y="196" fill="#B8BEC9">us-001-auth</text>
+
+              <text x="58" y="220" fill="#F2F4F8">us-005-direcciones</text>
+              <text x="270" y="220" fill="#B8BEC9">us-001-auth</text>
+
+              <text x="58" y="244" fill="#F2F4F8">us-006-carrito</text>
+              <text x="270" y="244" fill="#B8BEC9">us-003-productos</text>
+
+              <text x="58" y="268" fill="#F2F4F8">us-007-pedidos</text>
+              <text x="270" y="268" fill="#B8BEC9">us-006 · us-005</text>
+
+              <text x="58" y="292" fill="#F2F4F8">us-008-pagos-mp</text>
+              <text x="270" y="292" fill="#B8BEC9">us-007-pedidos</text>
+
+              <text x="58" y="316" fill="#F2F4F8">us-009-admin</text>
+              <text x="270" y="316" fill="#B8BEC9">us-008-pagos-mp</text>
+            </g>
+
+            <text x="260" y="354" text-anchor="middle" fill="#545A6B" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="1">próximo paso sugerido: /opsx:propose us-000-setup</text>
+          </svg>
+        </figure>
+      </article>
+
+      <!-- ═══════════════════════════════════════════════
+           SLIDE 7 · Configurar AGENTS.md
+      ════════════════════════════════════════════════ -->
+      <article class="slide" data-index="6" data-module="2" data-tone="success">
+        <div class="slide-content">
+          <p class="slide-kicker">07 · Framework</p>
           <h2>Configurar AGENTS.md</h2>
-          <p>El archivo que el agente lee <strong>antes de cada acción no trivial</strong>. Stack, rutas, convenciones de naming, reglas duras, skills disponibles. Si la KB es <em>qué</em> construimos, AGENTS.md es <em>cómo</em> trabajamos.</p>
+          <p>El archivo que el agente lee <strong>antes de cada acción no trivial</strong>. Stack, ruta a la KB, ruta al <code>CHANGES.md</code>, convenciones de naming, reglas duras, skills disponibles. Si la KB es <em>qué</em> construimos y CHANGES.md es <em>en qué orden</em>, AGENTS.md es <em>cómo</em> trabajamos.</p>
           <div class="note">
             <strong>Reglas duras</strong> que vale la pena dejar explícitas: no buildear automático, no commitear sin pedido, conventional commits sin Co-Authored-By, tests sin mocks de DB. Con esto, el agente deja de pelearse con vos.
           </div>
@@ -410,67 +471,6 @@
             <polygon points="256,296 260,304 264,296" fill="#7CD0A8"/>
             <rect x="180" y="305" width="160" height="38" rx="12" fill="#181B23" stroke="#1F232C"/>
             <text x="260" y="328" text-anchor="middle" fill="#F2F4F8" font-family="Inter,sans-serif" font-size="12" font-weight="500">Agente IA  ·  lo lee siempre</text>
-          </svg>
-        </figure>
-      </article>
-
-      <!-- ═══════════════════════════════════════════════
-           SLIDE 7 · Trazar el CHANGES.md
-      ════════════════════════════════════════════════ -->
-      <article class="slide" data-index="6" data-module="2" data-tone="success">
-        <div class="slide-content">
-          <p class="slide-kicker">07 · Framework</p>
-          <h2>Trazar el CHANGES.md</h2>
-          <p>La skill <strong>roadmap-generator</strong> lee la KB y emite <code>CHANGES.md</code> en la raíz: árbol de dependencias, gates de paralelismo, camino crítico, plan con N agentes, y por cada change scope detallado + governance + qué archivos KB leer antes.</p>
-          <div class="note">
-            Acá no se escribe una sola línea de código. Se decide <strong>en qué orden</strong> implementar, <strong>por qué</strong>, y <strong>qué se puede paralelizar</strong>. El resultado es operativo, no informativo.
-          </div>
-        </div>
-        <figure class="slide-figure">
-          <svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg">
-            <text x="260" y="24" text-anchor="middle" fill="#7B8294" font-family="Inter,sans-serif" font-size="10" letter-spacing="2">10 CHANGES  ·  ORDEN + JUSTIFICACIÓN</text>
-
-            <!-- tabla -->
-            <rect x="36" y="48" width="448" height="282" rx="14" fill="#10141C" stroke="#7CD0A8" stroke-width="1"/>
-
-            <!-- header -->
-            <rect x="36" y="48" width="448" height="32" rx="14" fill="rgba(124,208,168,0.06)"/>
-            <text x="58" y="68" fill="#7CD0A8" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="1.2">CHANGE</text>
-            <text x="270" y="68" fill="#7CD0A8" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="1.2">DEPENDE DE</text>
-
-            <g font-family="JetBrains Mono,monospace" font-size="10">
-              <text x="58" y="100" fill="#F2F4F8">us-000-setup</text>
-              <text x="270" y="100" fill="#7B8294">—</text>
-
-              <text x="58" y="124" fill="#F2F4F8">us-001-auth</text>
-              <text x="270" y="124" fill="#B8BEC9">us-000-setup</text>
-
-              <text x="58" y="148" fill="#F2F4F8">us-002-categorias</text>
-              <text x="270" y="148" fill="#B8BEC9">us-001-auth</text>
-
-              <text x="58" y="172" fill="#F2F4F8">us-003-productos</text>
-              <text x="270" y="172" fill="#B8BEC9">us-002-categorias</text>
-
-              <text x="58" y="196" fill="#F2F4F8">us-004-perfil</text>
-              <text x="270" y="196" fill="#B8BEC9">us-001-auth</text>
-
-              <text x="58" y="220" fill="#F2F4F8">us-005-direcciones</text>
-              <text x="270" y="220" fill="#B8BEC9">us-001-auth</text>
-
-              <text x="58" y="244" fill="#F2F4F8">us-006-carrito</text>
-              <text x="270" y="244" fill="#B8BEC9">us-003-productos</text>
-
-              <text x="58" y="268" fill="#F2F4F8">us-007-pedidos</text>
-              <text x="270" y="268" fill="#B8BEC9">us-006 · us-005</text>
-
-              <text x="58" y="292" fill="#F2F4F8">us-008-pagos-mp</text>
-              <text x="270" y="292" fill="#B8BEC9">us-007-pedidos</text>
-
-              <text x="58" y="316" fill="#F2F4F8">us-009-admin</text>
-              <text x="270" y="316" fill="#B8BEC9">us-008-pagos-mp</text>
-            </g>
-
-            <text x="260" y="354" text-anchor="middle" fill="#545A6B" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="1">próximo paso sugerido: /opsx:propose us-000-setup</text>
           </svg>
         </figure>
       </article>
