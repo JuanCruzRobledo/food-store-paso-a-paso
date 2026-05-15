@@ -382,7 +382,7 @@
 
               <text x="100" y="172" fill="#7B8294" font-size="9" letter-spacing="1.5">CONOCIMIENTO</text>
               <text x="100" y="190" fill="#B8BEC9">knowledge-base/ es la verdad</text>
-              <text x="100" y="206" fill="#B8BEC9">openspec/roadmap.md ordena</text>
+              <text x="100" y="206" fill="#B8BEC9">CHANGES.md ordena + paraleliza</text>
 
               <text x="100" y="234" fill="#7B8294" font-size="9" letter-spacing="1.5">SKILLS DISPONIBLES</text>
               <text x="100" y="252" fill="#B8BEC9">kb-creator · roadmap-generator</text>
@@ -415,15 +415,15 @@
       </article>
 
       <!-- ═══════════════════════════════════════════════
-           SLIDE 7 · Trazar el roadmap
+           SLIDE 7 · Trazar el CHANGES.md
       ════════════════════════════════════════════════ -->
       <article class="slide" data-index="6" data-module="2" data-tone="success">
         <div class="slide-content">
           <p class="slide-kicker">07 · Framework</p>
-          <h2>Trazar el roadmap</h2>
-          <p>La skill <strong>roadmap-generator</strong> lee la KB, identifica las capacidades, infiere dependencias técnicas y emite <code>openspec/roadmap.md</code>: tabla de changes con orden, justificación, y sugerencia del primer change a ejecutar.</p>
+          <h2>Trazar el CHANGES.md</h2>
+          <p>La skill <strong>roadmap-generator</strong> lee la KB y emite <code>CHANGES.md</code> en la raíz: árbol de dependencias, gates de paralelismo, camino crítico, plan con N agentes, y por cada change scope detallado + governance + qué archivos KB leer antes.</p>
           <div class="note">
-            Acá no se escribe una sola línea de código. Se decide <strong>en qué orden</strong> implementar y <strong>por qué</strong>. Auth antes que recursos protegidos, modelo de datos antes que CRUD, integraciones externas al final.
+            Acá no se escribe una sola línea de código. Se decide <strong>en qué orden</strong> implementar, <strong>por qué</strong>, y <strong>qué se puede paralelizar</strong>. El resultado es operativo, no informativo.
           </div>
         </div>
         <figure class="slide-figure">
@@ -572,7 +572,7 @@
           <h2>Lo que se llevan</h2>
           <p>No se llevan código de Food Store — se llevan <strong>el método</strong>. Tres cosas: una forma de trabajar, dos skills reusables en cualquier proyecto, y el hábito de escribir specs antes de tocar el editor.</p>
           <div class="note">
-            El siguiente paso es de ustedes. Tomen su propio proyecto, corran <code>kb-creator</code>, generen el roadmap, y propongan el primer change. <strong>El método se aprende usándolo.</strong>
+            El siguiente paso es de ustedes. Tomen su propio proyecto, corran <code>kb-creator</code>, generen el <code>CHANGES.md</code>, y propongan el primer change. <strong>El método se aprende usándolo.</strong>
           </div>
         </div>
         <figure class="slide-figure">

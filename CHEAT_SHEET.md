@@ -108,14 +108,14 @@ Abrir `openspec/config.yaml` para mostrar dónde se va a configurar el contexto.
 
 ---
 
-## Slide 07 · Trazar el roadmap — `10 min`
+## Slide 07 · Trazar el CHANGES.md — `10 min`
 
 **Qué decir**:
-> "Acá no se escribe ni una línea de código. Se decide el orden y el porqué. La skill roadmap-generator lee la KB, identifica las capacidades, infiere dependencias técnicas, y emite openspec/roadmap.md. Auth antes que recursos protegidos, datos antes que CRUD, integraciones al final."
+> "Acá no se escribe ni una línea de código. Se decide el orden, el porqué y cómo paralelizar el trabajo. La skill roadmap-generator lee la KB y emite CHANGES.md en la raíz con árbol de dependencias, gates de paralelismo, camino crítico y, por cada change, scope detallado + nivel de governance + qué archivos KB hay que leer antes."
 
 **Qué hacer en vivo**:
-- Pedirle al agente: *"generá el roadmap del proyecto"*.
-- Cuando termina, abrir `openspec/roadmap.md` y mostrar la tabla.
+- Pedirle al agente: *"generá el CHANGES.md del proyecto"*.
+- Cuando termina, abrir `CHANGES.md` (raíz) y recorrer: árbol de dependencias, gates, camino crítico, un change al azar para mostrar el formato.
 - Recorrer 2-3 dependencias en voz alta para mostrar el "por qué".
 
 **Si demora** → `git checkout step-6-roadmap-done`.
@@ -157,7 +157,7 @@ Abrir `openspec/config.yaml` para mostrar dónde se va a configurar el contexto.
 ## Slide 09 · Lo que se llevan — `5 min`
 
 **Qué decir**:
-> "No se llevan código de Food Store — se llevan el método. Una forma de trabajar. Dos skills reusables en cualquier proyecto. Y el hábito de escribir specs antes de tocar el editor. El método se aprende usándolo. Tomen su propio proyecto, corran kb-creator, generen el roadmap, y propongan el primer change."
+> "No se llevan código de Food Store — se llevan el método. Una forma de trabajar. Dos skills reusables en cualquier proyecto. Y el hábito de escribir specs antes de tocar el editor. El método se aprende usándolo. Tomen su propio proyecto, corran kb-creator, generen el CHANGES.md, y propongan el primer change."
 
 **Qué hacer**: nada — slide de cierre.
 
